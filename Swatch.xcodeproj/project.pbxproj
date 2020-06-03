@@ -14,6 +14,8 @@
 		916190F22487C17000FAF8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916190F12487C17000FAF8CD /* Assets.xcassets */; };
 		916190F52487C17000FAF8CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916190F42487C17000FAF8CD /* Preview Assets.xcassets */; };
 		916190F82487C17000FAF8CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916190F62487C17000FAF8CD /* LaunchScreen.storyboard */; };
+		916191002487C1C300FAF8CD /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916190FF2487C1C300FAF8CD /* ColorView.swift */; };
+		916191022487C1E900FAF8CD /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916191012487C1E900FAF8CD /* ColorViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		916190F42487C17000FAF8CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		916190F72487C17000FAF8CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		916190F92487C17000FAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		916190FF2487C1C300FAF8CD /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		916191012487C1E900FAF8CD /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				916190E82487C16D00FAF8CD /* AppDelegate.swift */,
 				916190EA2487C16D00FAF8CD /* SceneDelegate.swift */,
 				916190EF2487C16D00FAF8CD /* ContentView.swift */,
+				916190FF2487C1C300FAF8CD /* ColorView.swift */,
+				916191012487C1E900FAF8CD /* ColorViewModel.swift */,
 				916190F12487C17000FAF8CD /* Assets.xcassets */,
 				916190F62487C17000FAF8CD /* LaunchScreen.storyboard */,
 				916190F92487C17000FAF8CD /* Info.plist */,
@@ -151,8 +157,10 @@
 			files = (
 				916190E92487C16D00FAF8CD /* AppDelegate.swift in Sources */,
 				916190EB2487C16D00FAF8CD /* SceneDelegate.swift in Sources */,
+				916191022487C1E900FAF8CD /* ColorViewModel.swift in Sources */,
 				916190F02487C16D00FAF8CD /* ContentView.swift in Sources */,
 				916190EE2487C16D00FAF8CD /* Swatch.xcdatamodeld in Sources */,
+				916191002487C1C300FAF8CD /* ColorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
