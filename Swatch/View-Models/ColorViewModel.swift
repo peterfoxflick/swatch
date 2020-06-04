@@ -7,14 +7,16 @@
 //
 
 import Foundation
-class ColorViewModel: ObservableObject{
+class ColorViewModel: ObservableObject, Identifiable {
     @Published
+    var id: UUID
     var name: String
     var r: Int
     var g: Int
     var b: Int
     
     init(){
+        self.id = UUID()
         self.name = ""
         self.r = 0
         self.g = 0
@@ -22,6 +24,7 @@ class ColorViewModel: ObservableObject{
     }
     
     init(name: String, r: Int, g: Int, b:Int){
+        self.id = UUID()
         self.name = name
         self.r = r
         self.g = g

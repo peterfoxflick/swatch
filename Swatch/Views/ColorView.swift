@@ -9,28 +9,25 @@
 import SwiftUI
 
 struct ColorView: View {
-    @ObservedObject var c = ColorViewModel(name: "My Blue", r: 0, g: 100, b: 200)
+    @ObservedObject var c: ColorViewModel
+    
+    init(){
+        self.c = ColorViewModel(name: "My Blue", r: 0, g: 100, b: 200)
+    }
+    init(colorVM: ColorViewModel){
+        self.c = colorVM
+    }
     
     var body: some View {
         ZStack
             {
                 Color(red: c.getRed() , green: c.getGreen(), blue: c.getBlue())
-                    .edgesIgnoringSafeArea(.all)
-
-                // Your other content here
-                // Other layers will respect the safe area edges
-//                Rectangle()
-//                    .fill(Color.white)
-//                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300)
-//                    .edgesIgnoringSafeArea(.all)
-//                    .offset(x: 0, y: 300)
+                    .edgesIgnoringSafeArea(.bottom)
                 
                 VStack(spacing: 10) {
-                  // content here
                     Text(c.name).font(.headline)
                     Text("#\(c.getHex())")
                     Text("RGB: (\(c.r), \(c.g), \(c.b))")
-
                 }
                 .background(
                     RoundedRectangle(cornerRadius: 25, style: .continuous)
@@ -42,9 +39,10 @@ struct ColorView: View {
 
 
 
-        }
+        }.navigationBarTitle(c.name)
 
     }
+
 
 }
 

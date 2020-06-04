@@ -16,6 +16,10 @@
 		916190F82487C17000FAF8CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916190F62487C17000FAF8CD /* LaunchScreen.storyboard */; };
 		916191002487C1C300FAF8CD /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916190FF2487C1C300FAF8CD /* ColorView.swift */; };
 		916191022487C1E900FAF8CD /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916191012487C1E900FAF8CD /* ColorViewModel.swift */; };
+		91F4DB1E24891143005A729E /* SwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DB1D24891143005A729E /* SwatchView.swift */; };
+		91F4DB21248911A7005A729E /* SwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DB20248911A6005A729E /* SwatchViewModel.swift */; };
+		91F4DB2424891629005A729E /* SwatchesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DB2324891629005A729E /* SwatchesListView.swift */; };
+		91F4DB2624891695005A729E /* SwatchesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DB2524891695005A729E /* SwatchesListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		916190F92487C17000FAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916190FF2487C1C300FAF8CD /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		916191012487C1E900FAF8CD /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
+		91F4DB1D24891143005A729E /* SwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchView.swift; sourceTree = "<group>"; };
+		91F4DB20248911A6005A729E /* SwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchViewModel.swift; sourceTree = "<group>"; };
+		91F4DB2324891629005A729E /* SwatchesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchesListView.swift; sourceTree = "<group>"; };
+		91F4DB2524891695005A729E /* SwatchesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchesListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +72,8 @@
 			children = (
 				916190E82487C16D00FAF8CD /* AppDelegate.swift */,
 				916190EA2487C16D00FAF8CD /* SceneDelegate.swift */,
-				916190EF2487C16D00FAF8CD /* ContentView.swift */,
-				916190FF2487C1C300FAF8CD /* ColorView.swift */,
-				916191012487C1E900FAF8CD /* ColorViewModel.swift */,
+				91F4DB22248915FA005A729E /* View-Models */,
+				91F4DB1F24891161005A729E /* Views */,
 				916190F12487C17000FAF8CD /* Assets.xcassets */,
 				916190F62487C17000FAF8CD /* LaunchScreen.storyboard */,
 				916190F92487C17000FAF8CD /* Info.plist */,
@@ -82,6 +89,27 @@
 				916190F42487C17000FAF8CD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		91F4DB1F24891161005A729E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				916190EF2487C16D00FAF8CD /* ContentView.swift */,
+				916190FF2487C1C300FAF8CD /* ColorView.swift */,
+				91F4DB1D24891143005A729E /* SwatchView.swift */,
+				91F4DB2324891629005A729E /* SwatchesListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91F4DB22248915FA005A729E /* View-Models */ = {
+			isa = PBXGroup;
+			children = (
+				916191012487C1E900FAF8CD /* ColorViewModel.swift */,
+				91F4DB20248911A6005A729E /* SwatchViewModel.swift */,
+				91F4DB2524891695005A729E /* SwatchesListViewModel.swift */,
+			);
+			path = "View-Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +188,10 @@
 				916191022487C1E900FAF8CD /* ColorViewModel.swift in Sources */,
 				916190F02487C16D00FAF8CD /* ContentView.swift in Sources */,
 				916190EE2487C16D00FAF8CD /* Swatch.xcdatamodeld in Sources */,
+				91F4DB2424891629005A729E /* SwatchesListView.swift in Sources */,
+				91F4DB2624891695005A729E /* SwatchesListViewModel.swift in Sources */,
+				91F4DB1E24891143005A729E /* SwatchView.swift in Sources */,
+				91F4DB21248911A7005A729E /* SwatchViewModel.swift in Sources */,
 				916191002487C1C300FAF8CD /* ColorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
