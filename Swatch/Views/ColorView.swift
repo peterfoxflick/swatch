@@ -8,26 +8,26 @@
 
 import SwiftUI
 
-struct ColorView: View {
-    @ObservedObject var c: ColorViewModel
+struct SwatchView: View {
+    @ObservedObject var s: SwatchViewModel
     
     init(){
-        self.c = ColorViewModel(name: "My Blue", r: 0, g: 100, b: 200)
+        self.s = SwatchViewModel(name: "My Blue", r: 0, g: 100, b: 200)
     }
-    init(colorVM: ColorViewModel){
-        self.c = colorVM
+    init(s: SwatchViewModel){
+        self.s = s
     }
     
     var body: some View {
         ZStack
             {
-                Color(red: c.getRed() , green: c.getGreen(), blue: c.getBlue())
+                Color(red: s.getRed() , green: s.getGreen(), blue: s.getBlue())
                     .edgesIgnoringSafeArea(.bottom)
                 
                 VStack(spacing: 10) {
-                    Text(c.name).font(.headline)
-                    Text("#\(c.getHex())")
-                    Text("RGB: (\(c.r), \(c.g), \(c.b))")
+                    Text(s.name).font(.headline)
+                    Text("#\(s.getHex())")
+                    Text("RGB: (\(s.r), \(s.g), \(s.b))")
                 }
                 .background(
                     RoundedRectangle(cornerRadius: 25, style: .continuous)
@@ -36,10 +36,7 @@ struct ColorView: View {
                 )
 
 
-
-
-
-        }.navigationBarTitle(c.name)
+        }.navigationBarTitle(s.name)
 
     }
 
@@ -48,6 +45,6 @@ struct ColorView: View {
 
 struct ColorView_Previews: PreviewProvider {
     static var previews: some View {
-        ColorView()
+        SwatchView()
     }
 }

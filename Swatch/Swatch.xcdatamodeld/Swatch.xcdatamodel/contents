@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Palette" representedClassName="Palette" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" defaultValueString="My Palette"/>
+        <relationship name="swatches" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Swatch" inverseName="palette" inverseEntity="Swatch"/>
+    </entity>
+    <entity name="Swatch" representedClassName="Swatch" syncable="YES" codeGenerationType="class">
+        <attribute name="b" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="g" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="r" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="palette" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Palette" inverseName="swatches" inverseEntity="Palette"/>
+    </entity>
+    <elements>
+        <element name="Palette" positionX="-54" positionY="27" width="128" height="88"/>
+        <element name="Swatch" positionX="-63" positionY="-18" width="128" height="133"/>
+    </elements>
 </model>

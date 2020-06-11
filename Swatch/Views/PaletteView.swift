@@ -9,28 +9,28 @@
 import SwiftUI
 
 struct PaletteView: View {
-    @ObservedObject var s = PaletteViewwModel()
+    @ObservedObject var p = PaletteViewModel()
 
     var body: some View {
             List{
-                ForEach(self.s.colors){ c in
-                    NavigationLink(destination: ColorView(colorVM: c)) {
+                ForEach(self.p.swatches){ s in
+                    NavigationLink(destination: SwatchView(s: s)) {
                         HStack{
                             RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(Color(red: c.getRed(), green: c.getGreen(), blue: c.getBlue()))
+                            .fill(Color(red: s.getRed(), green: s.getGreen(), blue: s.getBlue()))
                                 .frame(width: 100, height: 100)
                             
                             VStack(alignment: .leading) {
-                                Text(c.name)
+                                Text(s.name)
                                     .font(.headline)
-                                Text("#\(c.getHex())")
+                                Text("#\(s.getHex())")
                             }
                                
                         }
                     }
 
                 }
-            }.navigationBarTitle(s.name)
+            }.navigationBarTitle(p.name)
     }
 }
 
