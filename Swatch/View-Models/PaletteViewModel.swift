@@ -8,10 +8,12 @@
 
 import Foundation
 class PaletteViewModel: ObservableObject, Identifiable {
-    @Published
-    var swatches: [SwatchViewModel]
-    var name: String
-    var id: UUID
+    var pDataManager = PaletteDataManger()
+
+    
+    @Published var swatches: [SwatchViewModel]
+    @Published var name: String
+    @Published var id: UUID
     
     init(){
         self.name = "my swatch"
@@ -31,5 +33,36 @@ class PaletteViewModel: ObservableObject, Identifiable {
         for s in p.swatches! {
             self.swatches.append(SwatchViewModel(s:s as! Swatch))
         }
+        
+    }
+    
+    func deleteSwatch(index: IndexSet){
+        if index.first == nil {
+            return
+        }
+        
+        let id = swatches[index.first!].id
+        SwatchDataManger().deleteSwatch(id: id)
+        self.fetch()
+    }
+    
+    func fetch(){
+        let p = pDataManager.getPalette(id: self.id)
+        if p == nil {
+            //somethings wrong
+            return
+        }
+        
+        self.name = p!.name ?? "My Palette"
+        self.id = p!.id ?? UUID()
+        self.swatches = [SwatchViewModel]()
+        for s in p!.swatches! {
+            self.swatches.append(SwatchViewModel(s:s as! Swatch))
+        }
+    }
+    
+    func save(){
+        pDataManager.updatePalette(id: self.id, newName: self.name)
+        fetch()
     }
 }

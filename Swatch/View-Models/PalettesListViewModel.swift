@@ -7,8 +7,12 @@
 //
 
 import Foundation
-class PalettesListViewModel: ObservableObject, Identifiable {
+import Combine
+
+class PalettesListViewModel: ObservableObject {
     var pDataManager = PaletteDataManger()
+    let objectWillChange = PassthroughSubject<(), Never>()
+
     
     @Published
     var palettes: [PaletteViewModel]
@@ -22,5 +26,24 @@ class PalettesListViewModel: ObservableObject, Identifiable {
     func fetch() {
         let temp = pDataManager.getPalettes().map(PaletteViewModel.init)
         self.palettes = temp
+        
+        do {
+            objectWillChange.send(())
+        }
+    }
+    
+    func add(name: String){
+        pDataManager.addPalette(name: name)
+        self.fetch()
+    }
+    
+    func delete(index: IndexSet){
+        if index.first == nil {
+            return
+        }
+        
+        let id = palettes[index.first!].id
+        pDataManager.deletePalette(id: id)
+        self.fetch()
     }
 }

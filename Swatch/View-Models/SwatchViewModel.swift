@@ -8,14 +8,27 @@
 
 import Foundation
 class SwatchViewModel: ObservableObject, Identifiable {
-    @Published
-    var id: UUID
-    var name: String
-    var r: Int16
-    var g: Int16
-    var b: Int16
+    var sDataManager = SwatchDataManger()
+    var paletteID: UUID
+
+    @Published var id: UUID
+    @Published var name: String
+    @Published var r: Int16
+    @Published var g: Int16
+    @Published var b: Int16
     
     init(){
+        self.id = UUID()
+        self.name = ""
+        self.r = 0
+        self.g = 0
+        self.b = 0
+        self.paletteID = UUID()
+    }
+    
+    init(palletID: UUID){
+        self.paletteID = palletID
+
         self.id = UUID()
         self.name = ""
         self.r = 0
@@ -29,6 +42,7 @@ class SwatchViewModel: ObservableObject, Identifiable {
         self.r = Int16(r)
         self.g = Int16(g)
         self.b = Int16(b)
+        self.paletteID = UUID()
     }
     
     init(s:Swatch){
@@ -37,6 +51,27 @@ class SwatchViewModel: ObservableObject, Identifiable {
         self.r = s.r
         self.g = s.g
         self.b = s.b
+        self.paletteID = s.palette?.id ?? UUID()
+    }
+    
+    func fetch(){
+        let s = sDataManager.getSwatch(id: self.id)
+        
+        if s == nil {
+            //somethings wrong
+            return
+        }
+        
+        self.name = s!.name ?? "Coolest of colors"
+        self.id = s!.id ?? UUID()
+        self.r = s!.r
+        self.g = s!.g
+        self.b = s!.b
+    }
+    
+    func save(){
+        sDataManager.updateSwatch(pID: self.paletteID, id: self.id, name: self.name, r: self.r, g: self.g, b: self.b)
+        fetch()
     }
     
     

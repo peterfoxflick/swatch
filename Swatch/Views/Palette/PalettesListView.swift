@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct PalettesListView: View {
-    @ObservedObject var palettesList = PalettesListViewModel()
+    @EnvironmentObject var palettesList: PalettesListViewModel
     @State var showingAdd = false
 
     var body: some View {
         NavigationView {
             List{
-                ForEach(self.palettesList.palettes){ p in
-                    NavigationLink(destination: PaletteView(p: p)) {
+                    ForEach(self.palettesList.palettes){ p in
+                        NavigationLink(destination: PaletteView(p: p)) {
                         VStack(alignment: .leading) {
                             Text(p.name)
                                 .font(.headline)
@@ -35,7 +35,7 @@ struct PalettesListView: View {
                         }
                     }
 
-                }
+                }.onDelete(perform: deletePalette)
             }.navigationBarTitle("My Swatches")
             .navigationBarItems(trailing:
                 Button(action:{
@@ -47,11 +47,15 @@ struct PalettesListView: View {
                         .frame(height:20)
                         .padding()
                 }.sheet(isPresented: $showingAdd){
-                    PaletteAddView()
+                    PaletteAddView(name: "", showAdd: self.$showingAdd, pvm: self.palettesList)
                 }
 
             )
         }
+    }
+    
+    func deletePalette(at offsets: IndexSet) {
+        palettesList.delete(index: offsets)
     }
 }
 

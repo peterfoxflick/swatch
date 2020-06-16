@@ -9,7 +9,10 @@
 import SwiftUI
 
 struct SwatchView: View {
+    @EnvironmentObject var palettesList: PalettesListViewModel
+
     @ObservedObject var s: SwatchViewModel
+    @State var showingEdit = false
     
     init(){
         self.s = SwatchViewModel(name: "My Blue", r: 0, g: 100, b: 200)
@@ -37,7 +40,19 @@ struct SwatchView: View {
 
 
         }.navigationBarTitle(s.name)
-
+        .navigationBarItems(trailing:
+            Button(action:{
+                self.showingEdit.toggle()
+            }) {
+                Image(systemName: "square.and.pencil")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height:20)
+                    .padding()
+            }.sheet(isPresented: $showingEdit){
+                AddEditSwatch(show: self.$showingEdit, svm: self.s, r: Double(self.s.r), g: Double(self.s.g), b: Double(self.s.b), name: self.s.name).environmentObject(self.palettesList)
+            }
+        )
     }
 
 

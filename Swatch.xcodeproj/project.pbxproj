@@ -20,6 +20,9 @@
 		916190F82487C17000FAF8CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916190F62487C17000FAF8CD /* LaunchScreen.storyboard */; };
 		916191002487C1C300FAF8CD /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916190FF2487C1C300FAF8CD /* ColorView.swift */; };
 		916191022487C1E900FAF8CD /* SwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916191012487C1E900FAF8CD /* SwatchViewModel.swift */; };
+		91C96F8824951F1400CCA19A /* PaletteEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C96F8724951F1400CCA19A /* PaletteEditView.swift */; };
+		91C96F8B2495241400CCA19A /* SwatchDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C96F8A2495241400CCA19A /* SwatchDataManger.swift */; };
+		91C96F8D249528E300CCA19A /* AddEditSwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C96F8C249528E300CCA19A /* AddEditSwatch.swift */; };
 		91F4DB1E24891143005A729E /* PaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DB1D24891143005A729E /* PaletteView.swift */; };
 		91F4DB21248911A7005A729E /* PaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DB20248911A6005A729E /* PaletteViewModel.swift */; };
 		91F4DB2424891629005A729E /* PalettesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F4DB2324891629005A729E /* PalettesListView.swift */; };
@@ -43,6 +46,9 @@
 		916190F92487C17000FAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916190FF2487C1C300FAF8CD /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		916191012487C1E900FAF8CD /* SwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchViewModel.swift; sourceTree = "<group>"; };
+		91C96F8724951F1400CCA19A /* PaletteEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteEditView.swift; sourceTree = "<group>"; };
+		91C96F8A2495241400CCA19A /* SwatchDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchDataManger.swift; sourceTree = "<group>"; };
+		91C96F8C249528E300CCA19A /* AddEditSwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditSwatch.swift; sourceTree = "<group>"; };
 		91F4DB1D24891143005A729E /* PaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteView.swift; sourceTree = "<group>"; };
 		91F4DB20248911A6005A729E /* PaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteViewModel.swift; sourceTree = "<group>"; };
 		91F4DB2324891629005A729E /* PalettesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalettesListView.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 			children = (
 				91535E4D248FB12E00E505C0 /* CoreDataManager.swift */,
 				91609AA12490F9C700451200 /* PaletteDataManager.swift */,
+				91C96F8A2495241400CCA19A /* SwatchDataManger.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,14 +128,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		91C96F8924951F1A00CCA19A /* Palette */ = {
+			isa = PBXGroup;
+			children = (
+				91F4DB2324891629005A729E /* PalettesListView.swift */,
+				91F4DB1D24891143005A729E /* PaletteView.swift */,
+				91C96F8724951F1400CCA19A /* PaletteEditView.swift */,
+				911CC1D7249251DB00D8CF17 /* PaletteAddView.swift */,
+			);
+			path = Palette;
+			sourceTree = "<group>";
+		};
+		91C96F8E249528E700CCA19A /* Swatch */ = {
+			isa = PBXGroup;
+			children = (
+				916190FF2487C1C300FAF8CD /* ColorView.swift */,
+				91C96F8C249528E300CCA19A /* AddEditSwatch.swift */,
+			);
+			path = Swatch;
+			sourceTree = "<group>";
+		};
 		91F4DB1F24891161005A729E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				916190EF2487C16D00FAF8CD /* ContentView.swift */,
-				916190FF2487C1C300FAF8CD /* ColorView.swift */,
-				91F4DB1D24891143005A729E /* PaletteView.swift */,
-				91F4DB2324891629005A729E /* PalettesListView.swift */,
-				911CC1D7249251DB00D8CF17 /* PaletteAddView.swift */,
+				91C96F8E249528E700CCA19A /* Swatch */,
+				91C96F8924951F1A00CCA19A /* Palette */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,9 +241,12 @@
 			files = (
 				911CC1D8249251DB00D8CF17 /* PaletteAddView.swift in Sources */,
 				916190E92487C16D00FAF8CD /* AppDelegate.swift in Sources */,
+				91C96F8824951F1400CCA19A /* PaletteEditView.swift in Sources */,
+				91C96F8B2495241400CCA19A /* SwatchDataManger.swift in Sources */,
 				916190EB2487C16D00FAF8CD /* SceneDelegate.swift in Sources */,
 				916191022487C1E900FAF8CD /* SwatchViewModel.swift in Sources */,
 				916190F02487C16D00FAF8CD /* ContentView.swift in Sources */,
+				91C96F8D249528E300CCA19A /* AddEditSwatch.swift in Sources */,
 				916190EE2487C16D00FAF8CD /* Swatch.xcdatamodeld in Sources */,
 				91F4DB2424891629005A729E /* PalettesListView.swift in Sources */,
 				91F4DB2624891695005A729E /* PalettesListViewModel.swift in Sources */,
@@ -374,7 +402,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.peterfoxflick.Swatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -396,7 +424,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.peterfoxflick.Swatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
