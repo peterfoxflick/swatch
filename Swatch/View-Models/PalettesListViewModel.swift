@@ -11,12 +11,10 @@ import Combine
 
 class PalettesListViewModel: ObservableObject {
     var pDataManager = PaletteDataManger()
-    let objectWillChange = PassthroughSubject<(), Never>()
+    
+    @Published var palettes: [PaletteViewModel]
+    
 
-    
-    @Published
-    var palettes: [PaletteViewModel]
-    
     
     init(){
         self.palettes = [PaletteViewModel]()
@@ -27,9 +25,15 @@ class PalettesListViewModel: ObservableObject {
         let temp = pDataManager.getPalettes().map(PaletteViewModel.init)
         self.palettes = temp
         
-        do {
-            objectWillChange.send(())
+        print("PALETTS: \(palettes.count)")
+        
+        var s = "Swatches: "
+        
+        for p in self.palettes {
+            s.append("count: \(p.swatches.count)  ")
         }
+        
+        print(s)
     }
     
     func add(name: String){

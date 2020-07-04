@@ -34,6 +34,7 @@ class PaletteViewModel: ObservableObject, Identifiable {
             self.swatches.append(SwatchViewModel(s:s as! Swatch))
         }
         
+        self.swatches = self.swatches.sorted { $0.name < $1.name }
     }
     
     func deleteSwatch(index: IndexSet){
@@ -59,6 +60,7 @@ class PaletteViewModel: ObservableObject, Identifiable {
         for s in p!.swatches! {
             self.swatches.append(SwatchViewModel(s:s as! Swatch))
         }
+        self.swatches = self.swatches.sorted { $0.name < $1.name }
     }
     
     func save(){

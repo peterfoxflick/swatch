@@ -20,20 +20,40 @@ struct PaletteView: View {
 
     var body: some View {
             List{
+                
+                if(self.p.swatches.count == 0){
+                    Text("To add a color click the plus button on the top right")
+                    .font(.callout)
+                }
+                
+                
                 ForEach(self.p.swatches){ s in
                     NavigationLink(destination: SwatchView(s: s)) {
-                        HStack{
-                            RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(Color(red: s.getRed(), green: s.getGreen(), blue: s.getBlue()))
-                                .frame(width: 100, height: 100)
-                            
-                            VStack(alignment: .leading) {
-                                Text(s.name)
-                                    .font(.headline)
-                                Text("#\(s.getHex())")
-                            }
-                               
+                        ZStack
+                            {
+  
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .fill(Color(red: s.getRed(), green: s.getGreen(), blue: s.getBlue()))
+                                    .frame(height: 100)
+                                
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(s.name)
+                                            .font(.headline)
+                                        Text("#\(s.getHex())")
+                                    }
+                                    .padding()
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .fill(Color.white)
+                                    )
+                                    
+                                    Spacer()
+                                }.padding()
                         }
+                            
+                    
+                        
                     }
 
                 }.onDelete(perform: deleteSwatch)
@@ -69,6 +89,7 @@ struct PaletteView: View {
     
     func deleteSwatch(at offsets: IndexSet) {
         p.deleteSwatch(index: offsets)
+        palettesList.fetch()
     }
     
 }

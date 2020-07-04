@@ -47,6 +47,7 @@ class SwatchDataManger {
         request.predicate = NSPredicate(format: "%K == %@", "id", id as CVarArg)
         
         do {
+            try? CoreDataManager.shared.persistentContainer.viewContext.setQueryGenerationFrom(.current)
             swatches = try self.managedObjectContext.fetch(request)
         } catch let error as NSError {
             print(error)

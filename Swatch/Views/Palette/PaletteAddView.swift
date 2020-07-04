@@ -55,7 +55,7 @@ struct PaletteAddView: View {
                 }
             }
             
-        }
+        }.accentColor(.pink)
     }
     
     func addPalette(){

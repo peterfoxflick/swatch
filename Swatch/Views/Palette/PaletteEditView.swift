@@ -57,7 +57,7 @@ struct PaletteEditView: View {
                 }
             }
             
-        }
+        }.accentColor(.pink)
     }
     
     func save(){

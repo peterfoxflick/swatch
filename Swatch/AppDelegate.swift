@@ -43,6 +43,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentCloudKitContainer(name: "Swatch")
+        
+    
+        // get the store description
+        guard let description = container.persistentStoreDescriptions.first else {
+            fatalError("Could not retrieve a persistent store description.")
+        }
+        
+        
+//        // initialize the CloudKit schema
+//        let id = "iCloud.com.peterfoxflick.swatch"
+//        let options = NSPersistentCloudKitContainerOptions(containerIdentifier: id)
+//        description.cloudKitContainerOptions = options
+
+        
+        let remoteChangeKey = "NSPersistentStoreRemoteChangeNotificationOptionKey"
+        description.setOption(true as NSNumber,
+                                   forKey: remoteChangeKey)
+
+                
+ 
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -59,6 +80,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
+        
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.automaticallyMergesChangesFromParent = true
+
+
+        
+//        do {
+//             //thanks https://forums.developer.apple.com/thread/120453
+//             //and https://schwiftyui.com/swiftui/using-cloudkit-in-swiftui/
+//             try container.initializeCloudKitSchema()
+//
+//         } catch {
+//             print("Unexpected icloud error: \(error)")
+//         }
+        
+        
         return container
     }()
 

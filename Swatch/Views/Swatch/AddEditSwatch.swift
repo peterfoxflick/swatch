@@ -64,16 +64,17 @@ struct AddEditSwatch: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(height:30)
                         .padding()
-                }
+                }.disabled(self.name.count == 0)
             }
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 5, style: .continuous)
                     .fill(Color.white)
-                    .frame(minWidth: 300, idealWidth: 400, maxWidth: 500, minHeight: 200, idealHeight: 250, maxHeight: 500, alignment: .leading)
+                    .frame(minHeight: 200, idealHeight: 250, maxHeight: 500, alignment: .leading)
             )
+            .offset(y: -85)
             
-        }
+        }.accentColor(.pink)
     }
     
     func save() {

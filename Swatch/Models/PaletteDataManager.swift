@@ -40,6 +40,8 @@ class PaletteDataManger {
         request.predicate = NSPredicate(format: "%K == %@", "name", name as CVarArg)
         
         do {
+            try? CoreDataManager.shared.persistentContainer.viewContext.setQueryGenerationFrom(.current)
+
             palettes = try self.managedObjectContext.fetch(request)
         } catch let error as NSError {
             print(error)
@@ -53,8 +55,10 @@ class PaletteDataManger {
         
         let request: NSFetchRequest<Palette> = Palette.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", "id", id as CVarArg)
+
         
         do {
+            try? CoreDataManager.shared.persistentContainer.viewContext.setQueryGenerationFrom(.current)
             palettes = try self.managedObjectContext.fetch(request)
         } catch let error as NSError {
             print(error)
@@ -67,8 +71,11 @@ class PaletteDataManger {
         var palettes = [Palette]()
         
         let request: NSFetchRequest<Palette> = Palette.fetchRequest()
+        let sort = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sort]
         
         do {
+            //try? CoreDataManager.shared.persistentContainer.viewContext.setQueryGenerationFrom(.current)
             palettes = try self.managedObjectContext.fetch(request)
         } catch let error as NSError {
             print(error)
